@@ -1,0 +1,9 @@
+streamlit
+transformers
+torch
+faiss-cpu
+sentence-transformers
+python-docx
+reportlab
+requests
+toml

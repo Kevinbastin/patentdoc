@@ -1,0 +1,6 @@
+[
+    {"code": "G06F", "description": "Electrical digital data processing"},
+    {"code": "A61B", "description": "Diagnosis; Surgery; Identification"},
+    {"code": "H04L", "description": "Transmission of digital information"},
+    {"code": "B60R", "description": "Vehicles, vehicle fittings, or vehicle parts"}
+]
