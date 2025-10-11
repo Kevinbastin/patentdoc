@@ -1,7 +1,7 @@
 from llama_cpp import Llama
 
 # Path to your local Phi-3 GGUF model
-LLM_PATH = "/home/urk23cs7081/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
 
 # Load the model
 llm = Llama(model_path=LLM_PATH)

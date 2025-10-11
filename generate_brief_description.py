@@ -1,7 +1,7 @@
 from llama_cpp import Llama
 
 # Path to your GGUF model
-LLM_PATH = "/home/urk23cs7081/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
 
 # Load model ONCE globally
 llm = Llama(model_path=LLM_PATH, n_ctx=4096, n_threads=4)  # Use more threads if your CPU supports it
