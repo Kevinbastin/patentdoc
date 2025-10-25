@@ -234,7 +234,7 @@ if st.button("🖼️ Summary of Drawings"):
     else:
         with st.spinner("Generating summary of drawings..."):
             try:
-                result = generate_drawing_summary(abstract)
+                result = generate_drawing(abstract)
                 if isinstance(result, dict):
                     st.session_state.summary_drawings = result.get("text", "")
                 else:
@@ -264,7 +264,6 @@ if st.session_state.get("cpc_result"):
     with st.expander("🔍 CPC Classification"):
         st.code(st.session_state.cpc_result)
 
-# Add this section in your app.py AFTER all generation sections
 st.markdown("---")
 st.markdown("## 🔍 Patent Quality Verification")
 st.info("🤖 5 AI Agents will analyze your patent for quality and compliance")
@@ -316,8 +315,6 @@ if st.session_state.get('verification_report'):
         st.text(st.session_state.verification_report)  # ✅ CHANGED: st.write() → st.text()
 
 st.markdown("---")
-
-
 
 # ----------------------- EXPORT -------------------------
 # ----------------------- EXPORT -------------------------

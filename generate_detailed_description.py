@@ -3,8 +3,9 @@ import re
 from typing import Dict, List
 
 
-LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
-llm = Llama(model_path=LLM_PATH, device="cuda", n_ctx=8192, n_threads=4, verbose=False)  # Increased context
+LLM_PATH = "/workspace/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+
+llm = Llama(model_path=LLM_PATH, device="auto", n_ctx=8192, n_threads=4, verbose=False)  # Increased context
 
 
 def extract_components_with_numerals(abstract: str, claims: str) -> Dict[str, List]:

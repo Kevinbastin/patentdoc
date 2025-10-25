@@ -3,11 +3,12 @@ import re
 
 
 # Path to your local Phi-3 model
-LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/workspace/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+
 
 
 # Load the model once
-llm = Llama(model_path=LLM_PATH, device="cuda", n_ctx=2048, n_threads=4)
+llm = Llama(model_path=LLM_PATH, device="auto", n_ctx=2048, n_threads=4)
 
 
 # USPTO MPEP 606 forbidden words that get automatically deleted

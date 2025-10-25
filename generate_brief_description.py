@@ -4,12 +4,13 @@ from typing import Dict, List
 
 
 # Path to your locally downloaded Phi-3 model (.gguf file)
-LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/workspace/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+
 
 
 # Load the model ONCE at module level
 llm = Llama(
-    model_path=LLM_PATH, device="cuda",
+    model_path=LLM_PATH, device="auto",
     n_ctx=4096,
     n_threads=4,
     n_batch=512,

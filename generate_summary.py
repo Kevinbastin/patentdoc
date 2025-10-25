@@ -4,11 +4,12 @@ from typing import Dict
 
 
 # Path to your local Phi-3 GGUF model
-LLM_PATH = "/app/models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/workspace/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+
 
 
 # Load the model
-llm = Llama(model_path=LLM_PATH, device="cuda", n_ctx=4096, n_threads=4, verbose=False)
+llm = Llama(model_path=LLM_PATH, device="auto", n_ctx=4096, n_threads=4, verbose=False)
 
 
 def generate_summary_of_invention(abstract: str, claims: str = "", max_attempts: int = 3) -> Dict[str, any]:

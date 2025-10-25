@@ -4,12 +4,13 @@ from typing import Dict, List
 
 
 # Path to your GGUF model
-LLM_PATH = "./models/models/phi-3-mini-4k-instruct-q4.gguf"
+LLM_PATH = "/workspace/patentdoc-copilot/models/models/phi-3-mini-4k-instruct-q4.gguf"
+
 
 
 # Load the model ONCE with optimized settings
 llm = Llama(
-    model_path=LLM_PATH, device="cuda",
+    model_path=LLM_PATH, device="auto",
     n_ctx=6144,  # Increased for longer background sections
     n_threads=4,
     n_batch=512,
