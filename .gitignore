@@ -37,3 +37,4 @@ e.json.gz
 # OS
 .DS_Store
 Thumbs.db
+models/best_patentbert_cpc_model.pt
