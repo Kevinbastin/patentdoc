@@ -266,9 +266,9 @@ if st.session_state.get("cpc_result"):
 
 st.markdown("---")
 st.markdown("## 🔍 Patent Quality Verification")
-st.info("🤖 5 AI Agents will analyze your patent for quality and compliance")
+st.info("🤖 6 AI Agents will analyze your patent for quality and compliance")
 
-if st.button("✅ Run 5-Agent Verification"):
+if st.button("✅ Run 6-Agent Verification"):
     # Check if required sections exist
     required = ['title', 'claims', 'abstract_input', 'background', 'summary']
     missing = [s for s in required if not st.session_state.get(s)]
@@ -276,12 +276,11 @@ if st.button("✅ Run 5-Agent Verification"):
     if missing:
         st.warning(f"⚠️ Please generate these sections first: {', '.join(missing)}")
     else:
-        with st.spinner("🤖 5 AI Agents verifying your patent... This may take 1-2 minutes"):
-            
+        with st.spinner("🤖 6 AI Agents verifying your patent... This may take 1-2 minutes"):
             try:
                 from patent_verifier import verify_patent_5_sections
                 
-                # Prepare 5 critical sections
+                # Prepare 5 critical sections for verification
                 sections_to_verify = {
                     'title': st.session_state.get('title', ''),
                     'abstract': st.session_state.get('abstract_input', ''),
@@ -295,11 +294,10 @@ if st.button("✅ Run 5-Agent Verification"):
                 
                 # Display results
                 st.success("✅ Verification Complete!")
-                
                 with st.expander("📊 Verification Report", expanded=True):
-                    st.text(report)  # ✅ CHANGED: st.write() → st.text()
+                    st.text(report)  # Display formatted report
                 
-                # Store report
+                # Store report in session state
                 st.session_state.verification_report = report
                 
             except ImportError:
@@ -308,14 +306,14 @@ if st.button("✅ Run 5-Agent Verification"):
             except Exception as e:
                 st.error(f"❌ Verification failed: {str(e)}")
                 st.info("💡 Check that Ollama is running: ollama serve")
+                st.info("💡 Ensure Llama 3.1 8B is installed: ollama pull llama3.1:8b")
 
 # Show previous report if exists
 if st.session_state.get('verification_report'):
     with st.expander("📋 View Previous Verification Report"):
-        st.text(st.session_state.verification_report)  # ✅ CHANGED: st.write() → st.text()
+        st.text(st.session_state.verification_report)
 
 st.markdown("---")
-
 # ----------------------- EXPORT -------------------------
 # ----------------------- EXPORT -------------------------
 st.markdown("---")
